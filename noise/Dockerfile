@@ -1,4 +1,4 @@
-FROM balenalib/raspberrypi3-python:3.7-build-20210705
+FROM balenalib/raspberrypi3-debian-python:3.11-bookworm-build
 
 RUN sed -i 's|deb.debian.org|archive.debian.org|g' /etc/apt/sources.list \
     && sed -i 's|security.debian.org|archive.debian.org|g' /etc/apt/sources.list \
