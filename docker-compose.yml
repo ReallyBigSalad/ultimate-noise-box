@@ -22,7 +22,7 @@ services:
       PULSE_SERVER: tcp:audio:4317
   minio:
     restart: always
-    image: jessestuart/minio:latest
+    image: alpine/minio:RELEASE.2025-10-15T17-29-55Z
     volumes:
       - 'shared-data:/data1'
     ports:
