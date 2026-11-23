@@ -22,7 +22,7 @@ services:
       PULSE_SERVER: tcp:audio:4317
   minio:
     restart: always
-    image:  quay.io/minio/minio:RELEASE.2024-11-07T00-52-20Z
+    image: jessestuart/minio:latest
     volumes:
       - 'shared-data:/data1'
     ports:
