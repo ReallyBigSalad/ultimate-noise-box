@@ -29,7 +29,7 @@ strip = PixelStrip(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRI
 strip.begin()
 
 r = redis.Redis(host="redis", port=6379, decode_responses=True)
-button = Button(BUTTON_PIN, pull_up=None, bounce_time=0.05)
+button = Button(BUTTON_PIN, pull_up=None, active_state=False, bounce_time=0.05)
 
 current_step = -1   # -1 = Off, 0..N-1 = Active preset index
 held_triggered = False
