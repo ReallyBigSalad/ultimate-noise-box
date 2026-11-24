@@ -17,11 +17,11 @@ PRESET_COLORS = {
     "p4": (255, 80, 20),     # Preset 4: Sunset Coral
 }
 
-phatbeat.set_brightness(0.15)  # 0.0 to 1.0 (dim nighttime level)
+phatbeat.set_brightness(0.04)  # 0.0 to 1.0 (dim nighttime level)
 r = redis.Redis(host="redis", port=6379, decode_responses=True)
 
 current_step = 0
-current_volume = 50
+current_volume = 100
 current_preset_color = COLOR_OFF
 last_state = None
 last_activity = 0.0
