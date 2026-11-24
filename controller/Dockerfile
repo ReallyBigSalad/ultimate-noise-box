@@ -3,7 +3,7 @@ FROM balenalib/raspberrypi3-debian-python:3.11-bookworm-build
 WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get install -y python3-lgpio swig liblgpio-dev \
-    && pip install --no-cache-dir rpi_ws281x gpiozero rpi-lgpio requests redis
+    && pip install --no-cache-dir phatbeat gpiozero rpi-lgpio requests redis
 
 COPY . .
 
