@@ -9,7 +9,7 @@ noise_path = "/data/my_data/noise/"
 file_filter = "wav"
 now_playing = "(nothing)"
 noise_status = "stop"
-current_volume = 0.8
+current_volume = 1.0
 
 pygame.init()
 pygame.mixer.init()
