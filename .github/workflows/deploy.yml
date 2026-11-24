@@ -1,0 +1,13 @@
+name: Deploy to balenaCloud
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: balena-io-experimental/balena-push-action@v1
+        with:
+          balena_token: ${{ secrets.BALENA_API_TOKEN }}
+          fleet: ultimate-noise-box
