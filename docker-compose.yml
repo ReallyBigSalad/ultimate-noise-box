@@ -1,8 +1,9 @@
 version: '2'
 volumes:
-    shared-data:
-    redis-data:
-    web-data:
+  shared-data:
+  minio-data:
+  redis-data:
+  web-data:
 services:
   audio:
     restart: always
