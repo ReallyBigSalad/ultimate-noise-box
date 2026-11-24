@@ -20,18 +20,19 @@ services:
       - "8080:8080"
     environment:
       PULSE_SERVER: tcp:audio:4317
-  minio:
-    restart: always
+minio:
     image: alpine/minio:RELEASE.2025-10-15T17-29-55Z
+    command: server /data --console-address ":9001"
+    restart: always
     volumes:
-      - 'shared-data:/data1'
+      - 'minio-data:/data'
     ports:
       - "9000:9000"
+      - "9001:9001"
     environment:
-      MINIO_ACCESS_KEY: myminio
-      MINIO_SECRET_KEY: myminio123
-      MINIO_REGION_NAME: myregion
-    command: minio server /data1
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: password
+
   redis:
     restart: always
     image: redis:6.2.4-alpine
