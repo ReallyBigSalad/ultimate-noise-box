@@ -7,7 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: balena-io-experimental/balena-push-action@v1
+      - uses: actions/setup-node@v4
         with:
-          balena_token: ${{ secrets.BALENA_API_TOKEN }}
-          fleet: ultimate-noise-box
+          node-version: '20'
+      - name: Install Balena CLI and Push
+        env:
+          BALENA_API_TOKEN: ${{ secrets.BALENA_API_TOKEN }}
+        run: |
+          npm install -g balena-cli
+          balena login --token "$BALENA_API_TOKEN"
+          balena push ultimate-noise-box
