@@ -84,6 +84,14 @@ function preset(filename, preset) {
   document.getElementById("pbtn" + preset).innerHTML=buildlink;
 }
 
+function setvolume(val) {
+  var request = new XMLHttpRequest();
+  var params = 'volume=' + val;
+  request.open("POST", "volume", true);
+  request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  request.send(params);
+}
+
 </script>
 </head>
 <body>
