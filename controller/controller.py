@@ -9,7 +9,7 @@ LED_COUNT = 10
 LED_PIN = 18          # GPIO 22 (WS2812 Data)
 LED_FREQ_HZ = 800000
 LED_DMA = 10
-LED_BRIGHTNESS = 60   # 0-255
+LED_BRIGHTNESS = 10   # 0-255
 LED_INVERT = False
 LED_CHANNEL = 0
 
@@ -17,7 +17,7 @@ BUTTON_PIN = 3        # GPIO 3 (Pulled down; HIGH when pressed)
 NOISE_API = "http://noise:5000"
 
 # Distinct colors for Off + Presets 1-4
-COLOR_OFF = Color(25, 8, 0)       # Dim warm amber when stopped (change to Color(0, 0, 0) for dark)
+COLOR_OFF = Color(0, 0, 0)       # Dim warm amber when stopped (change to Color(0, 0, 0) for dark)
 PRESET_COLORS = {
     "p1": Color(0, 120, 255),     # Preset 1: Ocean Blue
     "p2": Color(0, 200, 80),      # Preset 2: Emerald Green
