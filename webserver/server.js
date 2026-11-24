@@ -116,6 +116,7 @@ var server = app.listen(80, function () {
 
 //get the list of wav files in the image dir
 function getImages(imageDir, callback) {
+  file_count = 0;
   var fileType = '.wav', imageType = '.jpg',
     files = [], hasimage = [], i;
   fs.readdir(imageDir, function (err, list) {
