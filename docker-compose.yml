@@ -33,7 +33,7 @@ services:
     environment:
       MINIO_ROOT_USER: admin
       MINIO_ROOT_PASSWORD: password
-
+    user: "0:0"
   redis:
     restart: always
     image: redis:6.2.4-alpine
