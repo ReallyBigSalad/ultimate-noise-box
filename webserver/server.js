@@ -96,14 +96,18 @@ app.post('/stop', function (req, res) {
 
 app.post('/preset', function (req, res) {
   console.log('POST')
-  //console.dir(req.body)
-  
+  //console.dir(req.body)  
   client.set('p' + req.body.preset, req.body.filename, (err, reply) => {
     if (err) throw err;
     console.log(reply);
   });
-
   res.redirect('back');
+});
+
+app.post('/volume', function (req, res) {
+  console.log('POST volume:', req.body.volume);
+  PostCode('/volume/' + req.body.volume + '/');
+  res.sendStatus(200);
 });
 
 //start a server on port 80 and log its start to our console
