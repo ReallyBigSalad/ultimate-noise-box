@@ -20,7 +20,7 @@ services:
       - "8080:8080"
     environment:
       PULSE_SERVER: tcp:audio:4317
-minio:
+  minio:
     image: alpine/minio:RELEASE.2025-10-15T17-29-55Z
     command: server /data --console-address ":9001"
     restart: always
