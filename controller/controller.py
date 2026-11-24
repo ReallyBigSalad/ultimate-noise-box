@@ -7,17 +7,18 @@ NOISE_API = "http://noise:5000"
 LED_TIMEOUT = 10.0         # Turn off all LEDs after 10s of inactivity
 VOLUME_BAR_DURATION = 1.5  # Show volume bar for 1.5s after pressing Vol+/Vol-
 
-# RGB colors for Off + Presets 1-4
+phatbeat.set_brightness(0.04)  # Minimum APA102 hardware brightness (1/31)
+
+# Ultra-dim RGB colors for Off + Presets 1-4
 COLOR_OFF = (0, 0, 0)
-COLOR_WEB_DEFAULT = (0, 180, 220)
+COLOR_WEB_DEFAULT = (0, 15, 20)
 PRESET_COLORS = {
-    "p1": (0, 120, 255),     # Preset 1: Ocean Blue
-    "p2": (0, 200, 80),      # Preset 2: Emerald Green
-    "p3": (150, 40, 255),    # Preset 3: Soft Violet
-    "p4": (255, 80, 20),     # Preset 4: Sunset Coral
+    "p1": (0, 12, 25),       # Preset 1: Dim Ocean Blue
+    "p2": (0, 20, 8),        # Preset 2: Dim Emerald Green
+    "p3": (15, 4, 25),       # Preset 3: Dim Soft Violet
+    "p4": (25, 8, 2),        # Preset 4: Dim Sunset Coral
 }
 
-phatbeat.set_brightness(0.04)  # 0.0 to 1.0 (dim nighttime level)
 r = redis.Redis(host="redis", port=6379, decode_responses=True)
 
 current_step = 0
@@ -40,13 +41,13 @@ def show_volume_bar(volume_pct):
     global leds_on
     lit_count = round((volume_pct / 100.0) * 8)
     phatbeat.clear()
-    for i in range(lit_count):
+        for i in range(lit_count):
         if i < 5:
-            color = (0, 200, 80)     # Bottom levels: Emerald Green
+            color = (0, 20, 8)       # Bottom 5 LEDs (0-62%)
         elif i < 7:
-            color = (255, 160, 0)    # Upper-mid levels: Warm Amber
+            color = (25, 16, 0)      # Middle 2 LEDs (63-87%)
         else:
-            color = (255, 40, 20)    # Top level (LED 8): Red
+            color = (25, 4, 2)       # Top LED (88-100%)
         # Fill from bottom (7 & 15) up to top (0 & 8)
         phatbeat.set_pixel(7 - i, *color)
         phatbeat.set_pixel(15 - i, *color)
