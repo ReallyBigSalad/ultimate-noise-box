@@ -52,6 +52,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   background: #04AA6D; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
+
 </style>
 <script>
 function playsound(filename) {
@@ -115,7 +116,7 @@ function setvolume(val) {
     <br /><span id="preset0">(nothing)</span></h2>
     <div class="slidecontainer">
       <a class="w3-button w3-circle w3-small w3-blue" onclick="stopsound()"><i class="fas fa-stop"></i></a> &nbsp;&nbsp;&nbsp;
-      <input type="range" min="1" max="100" value="50" id="myRange">
+      <input type="range" min="0" max="100" value="80" class="slider" id="myRange" onchange="setvolume(this.value)">
     </div>
     </td></tr></table>
 
