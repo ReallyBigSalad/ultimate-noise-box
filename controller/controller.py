@@ -41,7 +41,7 @@ def show_volume_bar(volume_pct):
     global leds_on
     lit_count = round((volume_pct / 100.0) * 8)
     phatbeat.clear()
-        for i in range(lit_count):
+    for i in range(lit_count):
         if i < 5:
             color = (0, 20, 8)       # Bottom 5 LEDs (0-62%)
         elif i < 7:
