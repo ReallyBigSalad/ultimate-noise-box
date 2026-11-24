@@ -36,20 +36,20 @@ def set_ring_color(rgb):
     leds_on = (rgb != COLOR_OFF)
 
 def show_volume_bar(volume_pct):
-    """Light both 8-LED rows proportionally to volume (0-100%)."""
+    """Light both 8-LED rows from bottom to top proportionally to volume (0-100%)."""
     global leds_on
     lit_count = round((volume_pct / 100.0) * 8)
     phatbeat.clear()
     for i in range(lit_count):
         if i < 5:
-            color = (0, 200, 80)     # Lower levels: Emerald Green
+            color = (0, 200, 80)     # Bottom levels: Emerald Green
         elif i < 7:
             color = (255, 160, 0)    # Upper-mid levels: Warm Amber
         else:
-            color = (255, 40, 20)    # Max level (LED 8): Red
-        # Mirror across both 8-LED channels (0..7 and 8..15)
-        phatbeat.set_pixel(i, *color)
-        phatbeat.set_pixel(i + 8, *color)
+            color = (255, 40, 20)    # Top level (LED 8): Red
+        # Fill from bottom (7 & 15) up to top (0 & 8)
+        phatbeat.set_pixel(7 - i, *color)
+        phatbeat.set_pixel(15 - i, *color)
     phatbeat.show()
     leds_on = True
 
