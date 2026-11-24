@@ -6,7 +6,7 @@ RUN sed -i 's|deb.debian.org|archive.debian.org|g' /etc/apt/sources.list \
     && apt-get update \
     && apt-get install -y python3-pygame
 
-RUN pip3 install flask Flask-API
+RUN pip3 install Flask-API "Werkzeug==2.3.7" "Flask==2.3.3"
 
 # Tested versions:
 # flask 2.0.2
