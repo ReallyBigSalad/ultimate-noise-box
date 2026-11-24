@@ -16,4 +16,4 @@ jobs:
         run: |
           npm install -g balena-cli
           balena login --token "$BALENA_API_TOKEN"
-          balena push ultimate-noise-box
+          balena push pirate-noise-box
