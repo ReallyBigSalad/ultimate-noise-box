@@ -6,7 +6,7 @@ from rpi_ws281x import PixelStrip, Color
 
 # Kano Light Circle HAT Pinout
 LED_COUNT = 10
-LED_PIN = 22          # GPIO 22 (WS2812 Data)
+LED_PIN = 18          # GPIO 22 (WS2812 Data)
 LED_FREQ_HZ = 800000
 LED_DMA = 10
 LED_BRIGHTNESS = 60   # 0-255
